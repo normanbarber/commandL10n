@@ -1,0 +1,22 @@
+{
+	"name": "commandL10n",
+	"version": "0.0.1",
+	"description": "identifies all unused key value pairs in a locale file",
+	"preferGlobal": "false",
+	"bin": { "clean": "./bin/commandL10n.js" },
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "4.10.6",
+		"lodash-node": "*",
+		"q": "*",
+		"walkdir": "*",
+		"commander": "*",
+		"chai": "*",
+		"mocha": "*",
+		"sinon": "*",
+		"sinon-chai": "*",
+		"sandboxed-module": "*"
+	}
+}
