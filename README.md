@@ -3,7 +3,7 @@ Identifies unused localization key/value pairs in a project
 Recursively reads the directory and its sub-directories for the view files, eventually comparing localization string variables in the view with the locale file key/value pairs
 
 ### example of returned array of unused localization string keys
-```json
+```javascript
 [ 'Current On Hand',
   'Export Schedule',
   'PO',
@@ -27,7 +27,7 @@ Recursively reads the directory and its sub-directories for the view files, even
 
 ##### command line example
 ```bat
-	> cleani10n --localefile path/to/your/locale/folder/en.json --viewfolder path/to/your/read/folder
+	> clean --localefile path/to/your/locale/folder/en.json --viewfolder path/to/your/read/folder
 ```
 
 ##### Options:
