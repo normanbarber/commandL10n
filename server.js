@@ -5,16 +5,25 @@ var app = express();
 
 app.set('port', process.env.PORT || 8000);
 
-var viewfolder = 'C:/Users/nbarber/workspace/ca-workspace/github/commandL10n/test/views';
-var localefile = 'C:/Users/nbarber/workspace/ca-workspace/github/commandL10n/test/locales/en.json';
+/*
+*
+* requires a path to a folder of files to read
+* requires a path to the localization file with the key/value pairs
+*
+*/
+var viewfolder = __dirname + '/test/mocks/content';
+var localefolder = __dirname + '/test/mocks/localization/'
+var localefile = localefolder + 'en.json';
 
 var startTime;
 var endTime;
+var writeResults = true;
+
 app.listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 	startTime = new Date();
 	walker(viewfolder,function(files){
-		commandL10n(files, localefile)()
+		commandL10n(files, localefile, writeResults)()
 			.fin(function(){
 				console.log('\nresults returned and written successfully');
 				endTime =  new Date();

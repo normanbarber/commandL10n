@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "identifies all unused key value pairs in a locale file",
 	"preferGlobal": "false",
-	"bin": { "clean": "./bin/commandL10n.js" },
+	"bin": { "L10n": "./bin/commandL10n.js" },
 	"scripts": {
 		"start": "node server.js"
 	},

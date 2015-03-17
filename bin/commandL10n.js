@@ -7,6 +7,7 @@ commander
 	.version('0.0.1')
 	.option('-v, --viewfolder [string]', '[string] - folder you want to read recursively')
 	.option('-l, --localefile [string]', '[string] - file name and path to locale file')
+	.option('-w, --write [boolean]', '[boolean] - default value = false -  returns results overwriting code in xy.json file')
 	.parse(process.argv);
 
 commander.parse(process.argv);
@@ -19,10 +20,17 @@ function main(){
 	var viewfolder = commander.viewfolder
 	var localefile = commander.localefile ? commander.localefile : commander.viewfolder;
 
+	if(typeof commander.write == 'string')
+		commander.write = commander.write.replace(/'|"/g,"")
+	var writeResults = (commander.write && commander.write != 'false') ? commander.write : false;
+
 	walker(viewfolder,function(files){
-		commandL10n(files, localefile)()
+		commandL10n(files, localefile, writeResults)()
 			.fin(function(){
-				console.log('\nresults returned and written successfully');
+				if(writeResults)
+					console.log('\nresults returned and written successfully');
+				else
+					console.log('\nresults returned successfully');
 			})
 			.fail(function(error){
 				console.log(error);
