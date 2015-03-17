@@ -1,0 +1,7 @@
+div(id='detail-forecast', data-ng-show='forecast !== undefined')
+    div
+        h3(class="pull-left") #{__('Planning')}
+        div(class="pull-right", style="margin-top:9px;")
+            ul(class="btn-txt-group")
+                li <a href="" data-ng-click="autoplan($event)", ng-class="{'disabled': autoPlannable.length == 0}"><span class="fa fa-check"></span> #{__("auto plan")} </a>
+
